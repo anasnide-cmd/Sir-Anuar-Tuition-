@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sir Anuar Tuition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #d69e2e;
+            --dark: #1a202c;
+            --light: #f7fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--light);
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: "Tahun 2-6";
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2rem;
+            transform: rotate(-5deg);
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            background: rgba(255,255,255,0.95);
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links a {
+            margin-left: 1rem;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .price-tag {
+            font-size: 2.5rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin: 1rem 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--accent), #b7791f);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .cta-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255,255,255,0.3),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .cta-btn:hover::before {
+            left: 100%;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 1rem;
+            margin-top: 4rem;
+            border-top: 3px solid var(--accent);
+        }
+
+        [data-animate] {
+            opacity: 0;
+            transition: all 0.6s ease-out;
+        }
+
+        [data-animate="left"] { transform: translateX(-50px); }
+        [data-animate="right"] { transform: translateX(50px); }
+        [data-animate="up"] { transform: translateY(50px); }
+
+        [data-animate].animated {
+            opacity: 1;
+            transform: translate(0);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sir Anuar Tuition</h1>
+        <p>Sains, Matematik & Bahasa Melayu</p>
+        <div class="price-tag">RM80<span style="font-size: 1rem">/sebulan</span></div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <h2 style="color: var(--primary)">SAT</h2>
+            <div class="nav-links">
+                <a href="#tentang">Tentang</a>
+                <a href="#kelas">Kelas</a>
+                <a href="#daftar">Daftar</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="tentang" class="card" data-animate="up">
+            <h2>Kelas Fizikal Sekolah Rendah Tahun 2-6</h2>
+            <ul class="feature-list">
+                <li>✅ Sesi Fizikal di Lokasi Terpilih</li>
+                <li>✅ Modul Mengikut Sukatan KSSR</li>
+                <li>✅ Fokus Pembinaan Asas Kukuh</li>
+                <li>✅ Penyelesaian Masalah Secara Bersemuka</li>
+            </ul>
+        </section>
+
+        <section id="kelas">
+            <div class="grid">
+                <div class="card" data-animate="left">
+                    <h3>📚 Sains</h3>
+                    <p>Pembelajaran berasaskan eksperimen dan aplikasi praktikal dalam kelas</p>
+                </div>
+                <div class="card" data-animate="up">
+                    <h3>🧮 Matematik</h3>
+                    <p>Teknik penyelesaian masalah secara sistematik dan latihan secara langsung</p>
+                </div>
+                <div class="card" data-animate="right">
+                    <h3>📖 Bahasa Melayu</h3>
+                    <p>Penguasaan tatabahasa dan penulisan kreatif melalui interaksi fizikal</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="daftar" class="card" style="text-align: center" data-animate="up">
+            <h2>Daftar Sekarang!</h2>
+            <p>Kelas fizikal khas untuk murid Tahun 2 hingga 6</p>
+            <a href="https://wa.me/60105376167" class="cta-btn" target="_blank">
+                📞 Hubungi untuk Pendaftaran
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container" style="text-align: center">
+            <p>© 2024 Sir Anuar Tuition</p>
+            <p style="margin-top: 1rem">Khusus Sekolah Rendah Tahun 2-6</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('[data-animate]').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Staggered Animation for Cards
+        document.querySelectorAll('.card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html>
